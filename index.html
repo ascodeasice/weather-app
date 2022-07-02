@@ -5,20 +5,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Weather</title>
+  <title>Weather App</title>
 </head>
 
 <body>
-  <!-- TODO magnifier -->
-  <button id="tempUnitsBtn">°C/°F</button>
-  <input type="text" id="search" value="Tainan">
-  <h1 id="cityName"></h1>
-  <h1 id="description"></h1>
-  <h1 id="feelsLike"></h1>
-  <h1 id="humidity"></h1>
-  <h1 id="temp"></h1>
-  <h1 id="cloudiness"></h1>
+  <div id="header">
+    <img id="searchIcon" src="./assets/magnifier.svg" alt="">
+    <input type="text" id="search" value="Tainan">
+    <button id="tempUnitsBtn" class="cel">°C</button>
+  </div>
+  <div id="container">
+    <h1 id="description"></h1>
+    <h2 id="cityName"></h2>
+    <h3 id="temp"></h3>
+    <h3 id="feelsLike"></h3>
+    <h3 id="humidity"></h3>
+    <h3 id="cloudiness"></h3>
+    <h3 id="errorMessage"></h3>
+  </div>
   <script src="script.js"></script>
 </body>
 

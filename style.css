@@ -1,0 +1,90 @@
+:root {
+  --lighterBlue: #BBE1FA;
+  --lightBlue: #3282B8;
+  --errorColor: #F67280;
+  --inputWidth: 10rem;
+  --inputHeight: 1.4rem;
+  --h1Size: 3rem;
+  --h2Size: 2.5rem;
+  --h3Size: 2rem;
+}
+
+h1 {
+  font-size: var(--h1Size);
+  margin: 10px 0 0 0;
+}
+
+h2 {
+  font-size: var(--h2Size);
+  margin: 0.5rem;
+}
+
+h3 {
+  font-size: var(--h3Size);
+  margin: 1rem;
+}
+
+
+body {
+  margin: 0;
+  background: url(./assets/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif;
+}
+
+input {
+  height: var(--inputHeight);
+  width: var(--inputWidth);
+}
+
+#header {
+  padding-top: 5%;
+  padding-left: 10%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, min-content);
+  column-gap: 5px;
+  margin-bottom: 3rem;
+}
+
+#tempUnitsBtn {
+  border: none;
+  height: var(--h3Size);
+  width: calc(3* var(--h3Size));
+  color: white;
+}
+
+#tempUnitsBtn:hover {
+  background-color: var(--lighterBlue) !important;
+  color: black;
+}
+
+#tempUnitsBtn.cel {
+  background-color: gray;
+}
+
+#tempUnitsBtn.fah {
+  background-color: var(--lightBlue);
+}
+
+#searchIcon {
+  width: var(--inputHeight);
+  height: var(--inputHeight);
+  cursor: pointer;
+}
+
+#container {
+  padding-left: 10%;
+  display: grid;
+  grid-template-columns: min-content;
+}
+
+#errorMessage {
+  color: var(--errorColor);
+}

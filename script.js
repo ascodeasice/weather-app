@@ -8,11 +8,10 @@ const temp = document.getElementById("temp");
 const cloudiness = document.getElementById("cloudiness");
 const search = document.getElementById("search");
 const tempUnitsBtn = document.getElementById("tempUnitsBtn");
+const searchIcon = document.getElementById("searchIcon");
+const errorMessage = document.getElementById("errorMessage");
 let tempUnits = "°C";
 let data;//will be initailized later
-
-//TODO css
-//TODO fonts
 
 function celToFah(val) {
   return Math.round(Number(val) * 1.8 + 32);
@@ -37,12 +36,18 @@ function capitalize(str) {
 }
 
 function displayData(data) {
-  cityName.innerText = "Location:" + data.cityName;
+  errorMessage.innerText = "";
+  tempUnitsBtn.innerText = tempUnits;
+  cityName.innerText = data.cityName;
   description.innerText = capitalize(data.description);
   humidity.innerText = "Humidity:" + data.humidity;
   cloudiness.innerText = "Cloudiness:" + data.cloudiness;
   feelsLike.innerText = "Feels Like:" + (tempUnits == "°F" ? celToFah(data.feelsLike) : data.feelsLike) + tempUnits;
   temp.innerText = "Temperature:" + (tempUnits == "°F" ? celToFah(data.temp) : data.temp) + tempUnits;
+}
+
+function displayError() {
+  errorMessage.innerText = "Location Not Found"
 }
 
 function processJSON(data) {
@@ -68,6 +73,7 @@ async function getWeatherData(location) {
   }
   catch (error) {//TODO display error when location isn't found
     console.log(error);
+    displayError();
   }
 }
 
@@ -81,11 +87,19 @@ search.addEventListener("keyup", function (event) {
 tempUnitsBtn.addEventListener("click", () => {
   if (tempUnits == "°C") {
     tempUnits = "°F";
+    tempUnitsBtn.classList.remove("cel");
+    tempUnitsBtn.classList.add("fah");
   }
   else {
     tempUnits = "°C";
+    tempUnitsBtn.classList.remove("fah");
+    tempUnitsBtn.classList.add("cel");
   }
   displayData(data);
+})
+
+searchIcon.addEventListener("click", () => {
+  getWeatherData(search.value);
 })
 
 getWeatherData("Tainan");//default
